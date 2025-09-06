@@ -8,7 +8,7 @@ A fully type safe fullstack react app built on top of Tanstack Start and tRPC.
 
 ## TODO
 
-- [ ] add TanStack Start build from scratch code
+- [ ] add TanStack Start Build from Scratch code
 - [ ] add dev environment setup
     - [ ] .vscode settings.json and extension.json
     - [ ] prettier settings
