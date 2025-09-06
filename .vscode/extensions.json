@@ -1,0 +1,32 @@
+{
+	// NOTE: a list of recommended extensions to install
+	// denoted by their vscode identifier tags
+	"recommendations": [
+		// editor
+		"natqe.reload",
+		"mohammadbaqer.better-folding",
+		"cardinal90.multi-cursor-case-preserve",
+
+		// javascript
+		"wix.vscode-import-cost",
+		"wallabyjs.console-ninja",
+		"meganrogge.template-string-converter",
+
+		// typescript
+		"orta.vscode-twoslash-queries",
+		"yoavbls.pretty-ts-errors",
+		"mylesmurphy.prettify-ts",
+
+		// HTML
+		"formulahendry.auto-rename-tag",
+
+		// additional
+		"streetsidesoftware.code-spell-checker",
+		"wayou.vscode-todo-highlight",
+
+		// project extensions
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint"
+		// "bradlc.vscode-tailwindcss",
+	]
+}
