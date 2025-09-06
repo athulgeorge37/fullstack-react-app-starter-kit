@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A fully type safe fullstack react app built on top of Tanstack Start and tRPC.",
   "keywords": [],
-  "author": "",
+  "author": "athulgeorge37",
   "license": "MIT",
   "type": "module",
   "main": "index.js",
