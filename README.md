@@ -1,4 +1,4 @@
-# fullstack-react-app-starter-kit
+# Fullstack React App Starter Kit
 A fully type safe fullstack react app built on top of Tanstack Start and tRPC.
 
 
