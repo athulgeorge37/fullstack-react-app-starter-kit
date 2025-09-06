@@ -1,0 +1,28 @@
+{
+  "name": "fullstack-react-app-starter-kit",
+  "version": "1.0.0",
+  "description": "A fully type safe fullstack react app built on top of Tanstack Start and tRPC.",
+  "keywords": [],
+  "author": "athulgeorge37",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.131.35",
+    "@tanstack/react-start": "^1.131.35",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "vite": "^7.1.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "^5.9.2",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
