@@ -1,0 +1,36 @@
+{
+	"console.log": {
+		"scope": "javascript,typescript,typescriptreact",
+		"description": "Logs output to console",
+		"prefix": "clg",
+		"body": [
+			"console.log($1)$0"
+		],
+	},
+	"Arrow Function": {
+		"scope": "javascript,typescript,typescriptreact",
+		"description": "Arrow function",
+		"prefix": "af",
+		"body": [
+			"($1) => {",
+			"\t",
+			"\t$2",
+			"\t",
+			"};",
+			"$0"
+		],
+	},
+	"Arrow Function As Const": {
+		"scope": "javascript,typescript,typescriptreact",
+		"description": "Arrow function as const",
+		"prefix": "afc",
+		"body": [
+			"const $1 = ($2) => {",
+			"\t",
+			"\t$3",
+			"\t",
+			"};",
+			"$0"
+		],
+	},
+}
