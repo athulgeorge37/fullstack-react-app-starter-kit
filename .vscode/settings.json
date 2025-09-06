@@ -1,0 +1,42 @@
+{
+	// NOTE: Required for TanStack Router
+	"files.watcherExclude": {
+		"**/routeTree.gen.ts": true
+	},
+	"search.exclude": {
+		"**/routeTree.gen.ts": true
+	},
+	"files.readonlyInclude": {
+		"**/routeTree.gen.ts": true
+	},
+
+	// Settings for Vscode Extensions:
+	// Prettier:
+	"[javascript][typescript][typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+
+	// Eslint:
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+
+	// TODO's:
+	"todohighlight.keywords": [
+		{
+			"text": "TODO:",
+			"color": "red",
+			"border": "1px solid red",
+			"borderRadius": "4px",
+			"backgroundColor": "rgba(0,0,0,.2)"
+		},
+		{
+			"text": "NOTE:",
+			"color": "lightseagreen",
+			"border": "1px solid lightseagreen",
+			"borderRadius": "4px",
+			"backgroundColor": "rgba(0,0,0,.2)"
+		}
+	],
+}
