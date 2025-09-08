@@ -12,7 +12,7 @@
 
 	// Settings for Vscode Extensions:
 	// Prettier:
-	"[javascript][typescript][typescriptreact]": {
+	"[javascript][typescript][typescriptreact][json][jsonc]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true
 	},
@@ -38,5 +38,5 @@
 			"borderRadius": "4px",
 			"backgroundColor": "rgba(0,0,0,.2)"
 		}
-	],
+	]
 }

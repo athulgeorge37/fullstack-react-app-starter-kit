@@ -29,6 +29,6 @@
 		"",
 		"^[.]"
 	],
-    "importOrderTypeScriptVersion": "5.9.2",
-    "importOrderCaseSensitive": true
+	"importOrderTypeScriptVersion": "5.9.2",
+	"importOrderCaseSensitive": true
 }

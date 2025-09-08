@@ -13,7 +13,7 @@ A fully type safe fullstack react app built on top of Tanstack Start and tRPC.
     - [x] .vscode settings.json and extension.json
 	- [x] .vscode autocomplete code snippets
     - [x] prettier settings
-        - [x] add prettier sort imports plugin
+        - [x] add [prettier-plugin-sort-imports](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports)
     - [ ] eslint settings
     - [ ] husky pre commit hook to format before pushing code
 	- [ ] improve tsconfig.json
