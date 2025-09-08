@@ -11,8 +11,8 @@ A fully type safe fullstack react app built on top of Tanstack Start and tRPC.
 - [x] add TanStack Start Build from Scratch code
 - [ ] add dev environment setup
     - [x] .vscode settings.json and extension.json
-	- [ ] .vscode autocomplete code snippets
-    - [ ] prettier settings
+	- [x] .vscode autocomplete code snippets
+    - [x] prettier settings
         - [ ] add prettier sort imports plugin
     - [ ] eslint settings
     - [ ] husky pre commit hook to format before pushing code
