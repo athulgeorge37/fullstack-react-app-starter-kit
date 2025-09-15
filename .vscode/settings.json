@@ -12,7 +12,7 @@
 
 	// Settings for Vscode Extensions:
 	// Prettier:
-	"[javascript][typescript][typescriptreact][json][jsonc]": {
+	"[javascript][typescript][typescriptreact][json][jsonc][markdown]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true
 	},
