@@ -18,9 +18,10 @@ const getCount = createServerFn({
 });
 
 const updateCount = createServerFn({ method: "POST" })
-	.validator((d: number) => d)
+	.inputValidator((d: number) => d)
 	.handler(async ({ data }) => {
 		const count = await readCount();
+		console.log({ msg: `server log: ${count}` });
 		await fs.promises.writeFile(filePath, `${count + data}`);
 	});
 
@@ -33,10 +34,32 @@ function Home() {
 	const router = useRouter();
 	const state = Route.useLoaderData();
 
+	console.log("rendering");
+
 	return (
 		<button
 			type="button"
 			onClick={() => {
+				console.log("clicked");
+				console.log({
+					msg: "sddf",
+					wow: true,
+					address: {
+						street: 42,
+						name: "Morris road",
+						state: "VIC",
+						address: {
+							street: 42,
+							name: "Morris road",
+							state: "VIC",
+							address: {
+								street: 42,
+								name: "Morris road",
+								state: "VIC",
+							},
+						},
+					},
+				});
 				updateCount({ data: 1 }).then(() => {
 					router.invalidate();
 				});

@@ -35,6 +35,7 @@
     - [ ] add dropdown components
     - [ ] add input components
     - [ ] add table components
+- [ ] add route /dev/components/ui with sidebar to easily view all available components
 - [ ] add tanstack-form
     - [ ] integrate it with ui components
     - [ ] add custom form components like submit button and form button
@@ -42,12 +43,14 @@
 - [ ] add drizzle
     - [ ] add drizzle eslint plugins
     - [ ] upgrade drizzle to new relations api and query api
+    - [ ] add seed db script
+- [ ] add testing library
 - [ ] add lucia auth
     - [ ] add google oauth
     - [ ] add email & password flow
         - [ ] add verify email link
+        - [ ] add signup
+        - [ ] add signout
+        - [ ] add signin
         - [ ] add forget password email
         - [ ] add sync oauth accounts
-        - [ ] add signin
-        - [ ] add signout
-        - [ ] add signup

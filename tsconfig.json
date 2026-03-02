@@ -6,5 +6,7 @@
 		"target": "ES2022",
 		"skipLibCheck": true,
 		"strictNullChecks": true
-	}
+	},
+	"include": ["eslint.config.mjs", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
 }
