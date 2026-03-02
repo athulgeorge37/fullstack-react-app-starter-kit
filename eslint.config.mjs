@@ -5,9 +5,8 @@ import prettierPlugin from "eslint-plugin-prettier";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import { defineConfig } from "eslint/config";
+import globals from "globals";
 import tseslint from "typescript-eslint";
-
-// import globals from "globals";
 
 // defineConfig is a helper function providing type safety of the available values within each configuration object
 export default defineConfig(
@@ -45,9 +44,13 @@ export default defineConfig(
 			"prefer-template": "warn",
 		},
 	},
+	// provides recommended set of rules and configurations for typescript projects.
+	tseslint.configs.strictTypeChecked, // contains everything in recommendedTypeChecked
+	tseslint.configs.stylisticTypeChecked, // contains everything in stylistic, does not contain strictTypeChecked or recommendedTypeChecked
 	{
 		// required for TypeChecked versions of tseslint.configs
 		// it provides eslint with typescript information for typed linting
+		// this block must come after tseslint configs
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
@@ -55,9 +58,6 @@ export default defineConfig(
 			},
 		},
 	},
-	// provides recommended set of rules and configurations for typescript projects.
-	tseslint.configs.strictTypeChecked, // contains everything in recommendedTypeChecked
-	tseslint.configs.stylisticTypeChecked, // contains everything in stylistic, does not contain strictTypeChecked or recommendedTypeChecked
 	{
 		// typescript-eslint rules
 		// must prefix rule with "@typescript-eslint/"
@@ -85,8 +85,66 @@ export default defineConfig(
 			// very strict rules
 			"@typescript-eslint/no-unsafe-assignment": "error",
 			"@typescript-eslint/strict-boolean-expressions": "error",
-			"@typescript-eslint/no-restricted-types": "error",
-			// "@typescript-eslint/naming-convention": [...] // enforces PascalCase for types, camelCase for variables
+			"@typescript-eslint/no-restricted-types": [
+				"error",
+				{
+					types: {
+						"{}": {
+							message: "Use 'object' or a specific type instead",
+						},
+						Object: { message: "Use 'object' instead" },
+						Function: {
+							message: "Use a specific function type instead",
+						},
+					},
+				},
+			],
+			"@typescript-eslint/naming-convention": [
+				"warn",
+				// default for all identifiers — camelCase
+				{
+					selector: "default",
+					format: ["camelCase"],
+				},
+				// variables can be camelCase or UPPER_CASE (constants)
+				{
+					selector: "variable",
+					format: ["camelCase", "UPPER_CASE"],
+				},
+				// parameters can be camelCase, allow leading underscore for unused params
+				{
+					selector: "parameter",
+					format: ["camelCase"],
+					leadingUnderscore: "allow",
+				},
+				// class members (properties, methods) — camelCase, allow leading underscore for private
+				{
+					selector: "memberLike",
+					format: ["camelCase"],
+					leadingUnderscore: "allow",
+				},
+				// types, interfaces, enums, classes — PascalCase
+				{
+					selector: "typeLike",
+					format: ["PascalCase"],
+				},
+				// enum members — PascalCase
+				{
+					selector: "enumMember",
+					format: ["PascalCase"],
+				},
+				// allow any format for object destructuring (e.g. from 3rd party APIs with snake_case)
+				{
+					selector: "variable",
+					modifiers: ["destructured"],
+					format: null,
+				},
+				// allow any format for properties (3rd party objects may use snake_case)
+				{
+					selector: "objectLiteralProperty",
+					format: null,
+				},
+			],
 		},
 	},
 	{
@@ -134,6 +192,26 @@ export default defineConfig(
 		},
 		rules: {
 			"@prettier/prettier": "warn",
+		},
+	},
+	// frontend — browser globals only
+	{
+		files: ["frontend/**/*.{ts,tsx}"],
+		languageOptions: {
+			globals: {
+				...globals.browser,
+				...globals.es2025,
+			},
+		},
+	},
+	// backend — node globals only
+	{
+		files: ["backend/**/*.{ts,tsx}"],
+		languageOptions: {
+			globals: {
+				...globals.node,
+				...globals.es2025,
+			},
 		},
 	},
 );
