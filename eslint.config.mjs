@@ -1,6 +1,9 @@
 import eslintJS from "@eslint/js";
 import prettierConfig from "eslint-config-prettier";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import prettierPlugin from "eslint-plugin-prettier";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
@@ -15,7 +18,8 @@ export default defineConfig(
 		rules: {
 			"array-callback-return": "error",
 			// force use of curly brackets on if statements
-			curly: "warn",
+			// curly: "warn",
+			curly: ["warn", "all"],
 			// console logs show warning errors
 			"no-console": "warn",
 			// force space character after start of a comment
@@ -59,8 +63,6 @@ export default defineConfig(
 		// must prefix rule with "@typescript-eslint/"
 		// learn about possible rules from https://typescript-eslint.io/rules/
 		rules: {
-			// "@typescript-eslint/": "error",
-			//
 			"@typescript-eslint/no-unused-vars": "warn",
 			// "@typescript-eslint/explicit-function-return-type": "error"
 			"@typescript-eslint/explicit-member-accessibility": [
@@ -88,17 +90,46 @@ export default defineConfig(
 		},
 	},
 	{
+		// React Settings
+		settings: {
+			react: {
+				version: "detect", // auto-detects your installed React version
+			},
+		},
 		plugins: {
-			// react: reactPlugin,
+			// cannot rename plugin keys, as they will not be picked up by the spreading of recommended rules below
+			react: reactPlugin,
+			"react-hooks": reactHooksPlugin,
+			"jsx-a11y": jsxA11yPlugin,
 		},
 		rules: {
-			// add react plugin rules here
+			// --- eslint-plugin-react ---
+			...reactPlugin.configs.recommended.rules,
+			"react/react-in-jsx-scope": "off", // not needed in React 17+ (new JSX transform)
+			"react/prop-types": "off", // unnecessary with TypeScript
+			"react/self-closing-comp": "warn", // <Foo></Foo> → <Foo />
+			"react/jsx-no-useless-fragment": "warn", // removes unnecessary <>...</>
+			"react/jsx-curly-brace-presence": [
+				// removes unnecessary {"string"}, use "string"
+				"warn",
+				{ props: "never", children: "never" },
+			],
+			"react/no-array-index-key": "warn", // warns against using index as key prop
+			"react/no-danger": "error", // bans dangerouslySetInnerHTML
+
+			// --- eslint-plugin-react-hooks ---
+			...reactHooksPlugin.configs.recommended.rules,
+			// the spread already sets these, but shown explicitly for clarity:
+			"react-hooks/rules-of-hooks": "error", // hooks must follow the Rules of Hooks
+			"react-hooks/exhaustive-deps": "warn", // useEffect/useCallback deps must be complete
+
+			// --- eslint-plugin-jsx-a11y ---
+			...jsxA11yPlugin.configs.recommended.rules,
 		},
 	},
 	prettierConfig, // disables conflicting rules — must come BEFORE your rules block
 	{
 		plugins: {
-			// "@prettier": prettierPlugin,
 			"@prettier": prettierPlugin,
 		},
 		rules: {
