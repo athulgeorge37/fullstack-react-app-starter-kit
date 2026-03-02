@@ -1,4 +1,6 @@
 import eslintJS from "@eslint/js";
+import prettierConfig from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
 import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
@@ -87,18 +89,20 @@ export default defineConfig(
 	},
 	{
 		plugins: {
-			// "@prettier": prettierPlugin,
-		},
-		rules: {
-			// add prettier plugin rules here
-		},
-	},
-	{
-		plugins: {
 			// react: reactPlugin,
 		},
 		rules: {
 			// add react plugin rules here
+		},
+	},
+	prettierConfig, // disables conflicting rules — must come BEFORE your rules block
+	{
+		plugins: {
+			// "@prettier": prettierPlugin,
+			"@prettier": prettierPlugin,
+		},
+		rules: {
+			"@prettier/prettier": "warn",
 		},
 	},
 );

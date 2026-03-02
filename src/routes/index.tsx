@@ -13,7 +13,7 @@ async function readCount() {
 
 const getCount = createServerFn({
 	method: "GET",
-}).handler(() => {
+}).handler(async () => {
 	return readCount();
 });
 
