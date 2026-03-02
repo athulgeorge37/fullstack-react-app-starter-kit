@@ -24,11 +24,21 @@ export default defineConfig(
 					markers: ["/"],
 				},
 			],
+			//
+			"no-await-in-loop": "error",
+			"no-constant-binary-expression": "error",
+			"no-promise-executor-return": "error",
+			"no-self-compare": "error",
+			"no-template-curly-in-string": "error",
+			"no-unmodified-loop-condition": "error",
+			"require-atomic-updates": "error",
+			eqeqeq: ["error", "always"],
+			"no-lonely-if": "warn",
+			"no-useless-rename": "warn",
+			"prefer-const": "error",
+			"prefer-template": "warn",
 		},
 	},
-	// provides recommended set of rules and configurations for typescript projects.
-	tseslint.configs.strictTypeChecked, // contains everything in recommendedTypeChecked
-	tseslint.configs.stylisticTypeChecked, // contains everything in stylistic, does not contain strictTypeChecked or recommendedTypeChecked
 	{
 		// required for TypeChecked versions of tseslint.configs
 		// it provides eslint with typescript information for typed linting
@@ -39,6 +49,9 @@ export default defineConfig(
 			},
 		},
 	},
+	// provides recommended set of rules and configurations for typescript projects.
+	tseslint.configs.strictTypeChecked, // contains everything in recommendedTypeChecked
+	tseslint.configs.stylisticTypeChecked, // contains everything in stylistic, does not contain strictTypeChecked or recommendedTypeChecked
 	{
 		// typescript-eslint rules
 		// must prefix rule with "@typescript-eslint/"
@@ -47,6 +60,29 @@ export default defineConfig(
 			// "@typescript-eslint/": "error",
 			//
 			"@typescript-eslint/no-unused-vars": "warn",
+			// "@typescript-eslint/explicit-function-return-type": "error"
+			"@typescript-eslint/explicit-member-accessibility": [
+				"error",
+				{ accessibility: "explicit" },
+			],
+			"@typescript-eslint/no-explicit-any": "error",
+			"@typescript-eslint/consistent-type-imports": [
+				"error",
+				{ prefer: "type-imports" },
+			],
+			"@typescript-eslint/consistent-type-exports": "error",
+			"@typescript-eslint/no-import-type-side-effects": "error",
+			"@typescript-eslint/switch-exhaustiveness-check": "error",
+			"@typescript-eslint/no-unnecessary-condition": "error",
+			"@typescript-eslint/prefer-nullish-coalescing": "error",
+			"@typescript-eslint/promise-function-async": "error",
+			"@typescript-eslint/require-array-sort-compare": "error",
+
+			// very strict rules
+			"@typescript-eslint/no-unsafe-assignment": "error",
+			"@typescript-eslint/strict-boolean-expressions": "error",
+			"@typescript-eslint/no-restricted-types": "error",
+			// "@typescript-eslint/naming-convention": [...] // enforces PascalCase for types, camelCase for variables
 		},
 	},
 	{
